@@ -1,0 +1,18 @@
+from sunblaze_envs.registration import register, registry, make
+from sunblaze_envs.monitor import MonitorParameters
+
+register(
+    id='SunblazeAdaptedHalfCheetah-v0',
+    entry_point='adapted_envs:AdaptedHalfCheetah',
+    max_episode_steps=1000,
+    reward_threshold=4800.0,
+)
+
+register(
+    id='SunblazeAdaptedAnt-v0',
+    entry_point='adapted_envs:AdaptedAnt',
+    max_episode_steps=1000,
+    reward_threshold=4800.0,
+)
+
+print(registry.all())
