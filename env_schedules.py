@@ -46,16 +46,6 @@ def fixed_params_ant(t, num_timesteps, power=2.5, gravity=-9.81):
     return {'gravity': gravity, 'power': power}
 
 # Functions for generating evaluation schedules
-def eval_linear_length_pendulum(first=0.1, last=1.0, step=0.1, mass=1):
-    lengths = np.arange(first, last + step, step)
-    masses = np.full((len(lengths),), mass)
-    return {'length': lengths, 'mass': masses}
-
-def eval_linear_gravity_half_cheetah(first=-1, last=-21, step=4, power=0.9, friction=0.8):
-    densities = np.arange(first, last + step, step)
-    powers = np.full((len(densities),), power)
-    frictions = np.full((len(densities),), friction)
-    return {'density': densities, 'power': powers, 'friction': frictions}
 
 def eval_gravity_range_half_cheetah(gravity_range, power=0.9, friction=0.8):
     eval_params = []
@@ -63,19 +53,6 @@ def eval_gravity_range_half_cheetah(gravity_range, power=0.9, friction=0.8):
         eval_params.append({'gravity': gravity, 'power': power, 'friction': friction})
     return eval_params
 
-def eval_power_range_half_cheetah(power_range, gravity=-9.81, friction=0.8):
-    eval_params = []
-    for power in power_range:
-        eval_params.append({'gravity': gravity, 'power': power, 'friction': friction})
-    return eval_params
-        
-def eval_friction_range_half_cheetah(friction_range, gravity=-9.81, power=0.9):
-    eval_params = []
-    for friction in friction_range:
-        eval_params.append({'gravity': gravity, 'power': power, 'friction': friction})
-    return eval_params
-
-# Ant
 def eval_gravity_range_ant(gravity_range, power=2.5):
     eval_params = []
     for gravity in gravity_range:
